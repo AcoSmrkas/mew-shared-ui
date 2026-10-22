@@ -40,7 +40,7 @@
 	.columns {
 		display: flex;
 		flex-direction: row;
-		padding: 80px 0.75rem 0.75rem;
+		padding: 1rem;
 		font-size: 0.875rem;
 		line-height: 1.25rem;
 	}
@@ -64,8 +64,8 @@
 		display: flex;
 		flex-grow: 1;
 		justify-content: center;
-		margin-top: 0.75rem;
-		padding: 0.25rem 0.25rem 0.75rem;
+		margin-top: 1rem;
+		padding: 0.25rem 0.25rem 1rem;
 		font-size: 0.875rem;
 		line-height: 1.25rem;
 	}
