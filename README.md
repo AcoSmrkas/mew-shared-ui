@@ -4,7 +4,7 @@ Styles and Svelte components shared by the Mew dApps, taken from mart.mewfinance
 Source only: no build, no install scripts. Components use Svelte 4 syntax and work in Svelte 4 and 5.
 
 ```sh
-npm i github:AcoSmrkas/mew-shared-ui#v0.1.0
+npm i github:AcoSmrkas/mew-shared-ui#v0.1.2
 ```
 
 ## Styles
