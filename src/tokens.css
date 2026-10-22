@@ -1,0 +1,18 @@
+/* Mew design tokens (from mart.mewfinance.com). Override any of these after importing. */
+:root {
+	--main-color: #f9d72d;
+	--secondary-color: #fff;
+	--main-color-buttons: #ddf247;
+	--main-color-hover: var(--info-color);
+	--info-color: #04dfff;
+
+	--striped-1: #141a2a;
+	--striped-2: #192033;
+	--text-color: #ffffff88;
+	--forms-bg: #271843;
+	--borders: #ffffff22;
+	--text-light: #ffffff77;
+	--text-strong: #ccc;
+	--background: #160d25;
+	--footer: #0e0917;
+}

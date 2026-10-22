@@ -1,0 +1,35 @@
+{
+	"name": "mew-shared-ui",
+	"version": "0.1.0",
+	"description": "Shared Mew Finance styles and Svelte components (mart.mewfinance.com look).",
+	"private": true,
+	"license": "UNLICENSED",
+	"type": "module",
+	"exports": {
+		".": {
+			"svelte": "./src/index.js",
+			"default": "./src/index.js"
+		},
+		"./styles.css": "./styles.css",
+		"./tokens.css": "./src/tokens.css",
+		"./base.css": "./src/base.css",
+		"./bootstrap.css": "./src/bootstrap.css",
+		"./tailwind-preset": "./tailwind-preset.js",
+		"./components/*.svelte": {
+			"svelte": "./src/components/*.svelte",
+			"default": "./src/components/*.svelte"
+		},
+		"./package.json": "./package.json"
+	},
+	"files": [
+		"src",
+		"styles.css",
+		"tailwind-preset.js"
+	],
+	"sideEffects": [
+		"*.css"
+	],
+	"peerDependencies": {
+		"svelte": "^4.0.0 || ^5.0.0"
+	}
+}
