@@ -4,7 +4,7 @@ Styles and Svelte components shared by the Mew dApps, taken from mart.mewfinance
 Source only: no build, no install scripts. Components use Svelte 4 syntax and work in Svelte 4 and 5.
 
 ```sh
-npm i github:AcoSmrkas/mew-shared-ui#v0.1.2
+npm i github:AcoSmrkas/mew-shared-ui#v0.1.3
 ```
 
 ## Styles
@@ -62,3 +62,11 @@ mapped to the tokens (`bg-mew-bg`, `text-mew-main`, …).
 | `SpinnerBar` | `size` (colour = `currentColor`) | |
 
 The Navbar's default menu icon uses Font Awesome (`fa-solid fa-bars`); pass `menu-icon` if the app doesn't load it.
+
+Navbar spacing can be tuned per app with CSS variables (defaults in brackets, so leaving them unset changes nothing):
+`--mew-nav-gap` (`1rem`, gap between desktop links), `--mew-nav-mobile-pad-top` (`1.5rem`, space above the mobile
+menu rows), `--mew-nav-mobile-border` (`#374151`, mobile row border). Set them on `:root` in the app's CSS.
+The menu button has no colour of its own; set `.navbar-toggler { color: ... }` in the app's CSS if it should differ.
+
+The Footer renders the link-columns block only when `columns` is non-empty or the default slot is used, so
+`<Footer />` alone is just the copyright strip.

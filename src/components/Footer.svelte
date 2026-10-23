@@ -7,6 +7,7 @@
 </script>
 
 <div class="mew-footer">
+	{#if columns.length || $$slots.default}
 	<div class="columns container font-azeret">
 		{#each columns as column}
 			<div class="column">
@@ -20,6 +21,7 @@
 		{/each}
 		<slot />
 	</div>
+	{/if}
 	<div class="bottom text-light font-azeret">
 		<p>&copy; <slot name="copyright">{copyright}</slot> {year}</p>
 	</div>

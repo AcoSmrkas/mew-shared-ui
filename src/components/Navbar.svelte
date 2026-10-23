@@ -101,7 +101,7 @@
 	}
 
 	.nav-desktop {
-		column-gap: 1rem;
+		column-gap: var(--mew-nav-gap, 1rem);
 		position: absolute;
 		left: 50%;
 		transform: translateX(-50%);
@@ -141,7 +141,7 @@
 		display: flex;
 		position: relative;
 		justify-content: space-between;
-		padding-top: 1.5rem;
+		padding-top: var(--mew-nav-mobile-pad-top, 1.5rem);
 		padding-bottom: 0.5rem;
 		background: var(--background);
 		transition: all 0.2s ease;
@@ -164,6 +164,6 @@
 	.nav-mob li {
 		line-height: 2.5rem;
 		padding-bottom: 0.5rem;
-		border-bottom: 1px solid #374151;
+		border-bottom: 1px solid var(--mew-nav-mobile-border, #374151);
 	}
 </style>
