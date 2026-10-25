@@ -256,7 +256,8 @@ a {
 	transition: all 0.2s ease;
 }
 
-a:hover {
+/* Link buttons (a.btn) keep their button colours on hover. */
+a:not(.btn):hover {
 	color: var(--main-color) !important;
 }
 
