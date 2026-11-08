@@ -34,9 +34,26 @@
 		flex-direction: column;
 		gap: 0.5rem;
 		justify-content: space-around;
+		position: relative;
 		padding: 0.25rem;
-		background: var(--footer);
+		background: linear-gradient(180deg, rgba(14, 9, 23, 0.82) 0%, var(--footer) 100%);
 		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+	}
+
+	/* Hairline along the top that fades out at both ends. */
+	.mew-footer::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 1px;
+		background: linear-gradient(
+			90deg,
+			transparent,
+			var(--accent-border, rgba(185, 124, 255, 0.32)),
+			transparent
+		);
 	}
 
 	.columns {

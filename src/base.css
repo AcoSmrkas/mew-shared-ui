@@ -24,20 +24,52 @@ h2 {
 	font-family: 'Manrope';
 }
 
+::selection {
+	background: rgba(185, 124, 255, 0.35);
+	color: #fff;
+}
+
+/* Thin violet scrollbars instead of the grey system ones. */
+html {
+	scrollbar-color: #3b2563 transparent;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #3b2563;
+	border: 2px solid transparent;
+	border-radius: 10px;
+	background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: #4d3180;
+}
+
 .form-control {
 	background: var(--footer) !important;
-	border-radius: 5px;
+	border-radius: 10px;
 	color: #ffffff;
 	padding: 0.5rem;
 	font-size: 1rem;
 	width: 100%;
 	border: 1px solid var(--borders) !important;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+.form-control:focus,
 .form-control:focus-visible {
 	outline-offset: unset !important;
 	outline: unset !important;
-	box-shadow: unset;
+	box-shadow: 0 0 0 3px rgba(249, 215, 45, 0.14);
 	border: 1px solid var(--main-color) !important;
 }
 
@@ -61,17 +93,29 @@ h2 {
 	padding: 15px 30px !important;
 }
 
+/* Yellow buttons get a soft top-to-bottom gradient and a warm glow; hover stays flat. */
 .btn-primary {
 	background-color: var(--main-color) !important;
+	background-image: var(--main-gradient) !important;
 	border-color: var(--main-color) !important;
 	color: var(--background) !important;
 	font-weight: bold !important;
 	text-transform: unset !important;
+	box-shadow: 0 6px 18px -8px rgba(249, 215, 45, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+	transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease,
+		transform 0.2s ease;
 }
 
 .btn-primary:hover {
 	background-color: var(--main-color-hover) !important;
+	background-image: none !important;
 	border-color: var(--main-color-hover) !important;
+}
+
+.btn-primary:disabled,
+.btn-primary.disabled {
+	background-image: none !important;
+	box-shadow: none;
 }
 
 /* Bootstrap's blue focus glow; buttons keep their own colours when focused or pressed. */
@@ -83,13 +127,16 @@ h2 {
 
 .btn-secondary {
 	background-color: var(--secondary-color) !important;
+	background-image: linear-gradient(180deg, #ffffff 0%, #ebe3fa 100%) !important;
 	color: var(--background) !important;
 	font-weight: bold !important;
 	text-transform: unset !important;
+	box-shadow: 0 6px 18px -10px rgba(185, 124, 255, 0.6);
 }
 
 .btn-secondary:hover {
 	background-color: var(--main-color-hover) !important;
+	background-image: none !important;
 	border-color: var(--main-color-hover) !important;
 }
 
@@ -102,12 +149,14 @@ h2 {
 }
 
 .btn-outline:hover {
+	background: var(--accent-soft) !important;
 	border-color: var(--main-color) !important;
 	color: var(--main-color) !important;
 }
 
 .btn-info {
 	background-color: #03e0fd !important;
+	background-image: linear-gradient(180deg, #6ef2ff 0%, #03e0fd 55%, #00c4e8 100%) !important;
 	border: none;
 	font-weight: bold !important;
 }
@@ -116,11 +165,141 @@ h2 {
 .btn-info:focus,
 .btn-info:active {
 	background-color: var(--secondary-color) !important;
+	background-image: none !important;
 	box-shadow: none !important;
 }
 
 .btn-info:focus {
 	box-shadow: none;
+}
+
+/* Panel: violet gradient, thin violet border and a soft glow. */
+.mew-card {
+	background: var(--card-gradient);
+	border: 1px solid var(--accent-border);
+	border-radius: var(--card-radius);
+	box-shadow: var(--accent-glow);
+}
+
+/* Card that lifts and brightens its border on hover (listings, tiles). */
+.mew-card-hover {
+	transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.mew-card-hover:hover {
+	transform: translateY(-3px);
+	border-color: rgba(185, 124, 255, 0.6);
+	box-shadow: 0 12px 30px -12px rgba(159, 4, 255, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Small rounded label, e.g. a "New" or "v2" tag next to a title. */
+.mew-pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35em;
+	padding: 2px 10px;
+	border: 1px solid var(--accent-border);
+	border-radius: 999px;
+	background: var(--accent-soft);
+	color: var(--accent-color);
+	font-size: 11px;
+	font-weight: 700;
+	line-height: 16px;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	vertical-align: middle;
+}
+
+/* Hairline divider that fades out at both ends. */
+.mew-divider {
+	height: 1px;
+	border: 0;
+	background: linear-gradient(90deg, transparent, var(--accent-border), transparent);
+}
+
+/* Native <dialog> shell: no frame of its own (put a .mew-card inside) and a dim
+   violet backdrop. */
+dialog.mew-dialog {
+	padding: 0 !important;
+	border: 0 !important;
+	border-radius: var(--card-radius) !important;
+	background: transparent !important;
+	box-shadow: 0 30px 80px -24px rgba(0, 0, 0, 0.85);
+}
+
+dialog.mew-dialog::backdrop {
+	background: rgba(8, 4, 16, 0.6) !important;
+	backdrop-filter: blur(3px);
+}
+
+/* Pager: first / previous / "2 of 9" / next / last as separate rounded buttons.
+   Put .mew-pager on the row (works on Bootstrap's ul.pagination too) and
+   .page-link on each button; .page-current marks the page number. */
+.mew-pager {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.mew-pager .page-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 42px;
+	height: 42px;
+	margin: 0 !important;
+	padding: 0 14px;
+	border: 1px solid var(--accent-border) !important;
+	border-radius: 12px !important;
+	background: var(--card-gradient);
+	color: var(--main-color);
+	font-size: 0.95rem;
+	font-weight: 700;
+	line-height: 1;
+	text-decoration: none;
+	cursor: pointer;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mew-pager .page-link:hover:not(.is-disabled) {
+	border-color: var(--main-color) !important;
+	box-shadow: 0 0 16px -6px rgba(249, 215, 45, 0.55);
+}
+
+.mew-pager .page-link:focus {
+	box-shadow: none;
+}
+
+.mew-pager .page-current {
+	min-width: 88px;
+	color: #fff !important;
+}
+
+.mew-pager .page-link.is-disabled {
+	opacity: 0.45;
+	color: var(--text-light) !important;
+	cursor: default;
+	pointer-events: none;
+}
+
+@media (max-width: 480px) {
+	.mew-pager .page-link {
+		min-width: 38px;
+		height: 38px;
+		padding: 0 11px;
+		font-size: 0.85rem;
+	}
+}
+
+/* Fixed overlay behind a custom (non-dialog) modal. */
+.mew-overlay {
+	background: rgba(8, 4, 16, 0.72) !important;
+	backdrop-filter: blur(3px);
 }
 
 .unselectable {
@@ -150,7 +329,7 @@ input {
 }
 
 .skeleton-card {
-	border: 1px solid #1f232e;
+	border: 1px solid #2a1c45;
 	border-radius: 8px;
 	padding: 20px;
 	width: 220px;
@@ -159,7 +338,7 @@ input {
 }
 
 .skeleton-card > div {
-	background-color: #1f232e;
+	background-color: #2a1c45;
 	margin-bottom: 10px;
 }
 

@@ -17,8 +17,17 @@ export default {
 					border: 'var(--borders)',
 					text: 'var(--text-color)',
 					light: 'var(--text-light)',
-					strong: 'var(--text-strong)'
+					strong: 'var(--text-strong)',
+					accent: 'var(--accent-color)',
+					line: 'var(--line-color)'
 				}
+			},
+			backgroundImage: {
+				'mew-main': 'var(--main-gradient)',
+				'mew-card': 'var(--card-gradient)'
+			},
+			boxShadow: {
+				'mew-glow': 'var(--accent-glow)'
 			},
 			width: {
 				'fit-content': 'fit-content'

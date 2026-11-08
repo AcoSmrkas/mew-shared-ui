@@ -15,4 +15,15 @@
 	--text-strong: #ccc;
 	--background: #160d25;
 	--footer: #0e0917;
+
+	/* v2: violet accent, gradients and soft glows */
+	--accent-color: #b97cff;
+	--accent-border: rgba(185, 124, 255, 0.32);
+	--accent-soft: rgba(185, 124, 255, 0.1);
+	--accent-glow: 0 0 32px rgba(159, 4, 255, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+	--line-color: rgba(255, 255, 255, 0.08);
+	--main-gradient: linear-gradient(180deg, #ffe76a 0%, #f9d72d 50%, #efb90f 100%);
+	--card-gradient: linear-gradient(160deg, #2c1a4c 0%, #22143c 55%, #1b1030 100%);
+	--page-gradient: linear-gradient(180deg, #110a1e 0%, #170e2a 55%, #120a20 100%);
+	--card-radius: 14px;
 }

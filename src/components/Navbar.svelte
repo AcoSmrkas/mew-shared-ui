@@ -21,6 +21,7 @@
 <div
 	id="navbar"
 	class="mew-navbar"
+	class:solid={scrollY > 0 || open}
 	style="padding-top: {scrollY === 0 ? '25px' : '0'}; height: {scrollY === 0 ? '112px' : '87px'};"
 >
 	<div class="nav-container">
@@ -61,12 +62,21 @@
 </div>
 
 <style>
+	/* Clear at the top of the page so the page background shows through; solid with
+	   a hairline once the page scrolls under it or the menu is open. */
 	.mew-navbar {
 		z-index: 11;
 		position: fixed;
 		width: 100%;
-		background: var(--background);
+		background: transparent;
+		border-bottom: 1px solid transparent;
 		transition: all 0.5s ease;
+	}
+
+	.mew-navbar.solid {
+		background: rgba(22, 13, 37, 0.95);
+		border-bottom-color: var(--line-color, rgba(255, 255, 255, 0.08));
+		box-shadow: 0 12px 32px -20px rgba(0, 0, 0, 0.9);
 	}
 
 	.nav-container {
@@ -118,6 +128,24 @@
 		text-align: center;
 	}
 
+	/* Short glowing yellow bar under the current page's link. */
+	.nav-desktop li {
+		position: relative;
+	}
+
+	.nav-desktop li.active::after {
+		content: '';
+		position: absolute;
+		left: 50%;
+		bottom: -6px;
+		width: 18px;
+		height: 3px;
+		border-radius: 3px;
+		background: var(--main-gradient, var(--main-color));
+		box-shadow: 0 0 10px rgba(249, 215, 45, 0.6);
+		transform: translateX(-50%);
+	}
+
 	.actions {
 		display: flex;
 		align-items: center;
@@ -144,6 +172,8 @@
 		padding-top: var(--mew-nav-mobile-pad-top, 1.5rem);
 		padding-bottom: 0.5rem;
 		background: var(--background);
+		border-bottom: 1px solid var(--line-color, rgba(255, 255, 255, 0.08));
+		box-shadow: 0 18px 32px -20px rgba(0, 0, 0, 0.9);
 		transition: all 0.2s ease;
 		visibility: hidden;
 		opacity: 0;
@@ -164,6 +194,6 @@
 	.nav-mob li {
 		line-height: 2.5rem;
 		padding-bottom: 0.5rem;
-		border-bottom: 1px solid var(--mew-nav-mobile-border, #374151);
+		border-bottom: 1px solid var(--mew-nav-mobile-border, rgba(255, 255, 255, 0.08));
 	}
 </style>
